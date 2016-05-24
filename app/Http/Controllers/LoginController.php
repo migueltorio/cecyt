@@ -59,20 +59,26 @@ class LoginController extends Controller
         
     }
     
-    public function activarCuenta(Request $request)
+    public function activarCuenta($email, $token)
     {
-        return 'true';
-        //validamos
-        $validator = Validator::make($request->json()->all(), [
-            'email' => 'required|max:255|email',
-            'password' => 'required|max:255|string',
-        ]);
-        
-        if ($validator->fails()) {
-            $resultado = ['status' => 'fail',
-                          'message' => 'Debe propocionar un email y una contraseña'];
-            return response()->json($resultado, 400);
+
+        $user = \App\User::where('email',$email)->first();
+        if ($user == null) {
+            return response()->json(['status' => 'fail','message'=> 'no hay coincidencias'], 200);
+        } 
+        elseif ($user->estado=="bloqueado" || $user->estado=="activo") {
+            return response()->json(['status' => 'fail','message'=> 'autorizacion no valida'], 200);
         }
+        elseif ($user->token_activacion != $token) {
+            return response()->json(['status' => 'fail','message'=> 'no hay coincidencias'], 200);
+        }
+        else {
+            $user->estado="activo";
+            $user->save();
+            return response()->json(['status' => 'success','message'=> 'activacion exitosa','redirect'=>'login'], 200);
+
+        }
+        
         
         //responder
         if (Auth::attempt(['email' => $request->json('email'), 
