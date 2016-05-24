@@ -25,11 +25,6 @@ class User extends Authenticatable
     ];
     
 
-    //relaciones del modelo con otros modelos
-    public function horarios()
-    {
-        //este modelo tiene muchos horarios y la clave es user_id en la tabla foranea
-        return $this->hasMany('App\Horarios', 'user_id');
-    }
     
+   
 }

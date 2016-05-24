@@ -13,21 +13,57 @@
 
 
 
-Route::get('/', function () {
-    $data = ['url'=>'/hola','nombre'=>'Miguel'];
-    Mail::send('emails.activacion', $data, function ($message) {
-    $message->from('no-reply@cecytuca.tk', 'prueba');
 
-    $message->to('miguel@torbo.com.py');
-});
-});
-
-Route::get('/login', function () { return view('login');});
-
-Route::post('/iniciarSesion','LoginController@iniciarSesion');
-Route::post('/crearCuenta','LoginController@crearCuenta');
+    //VISTAS
+        Route::get('/',function (){return view('welcome');});
 
 
-//Route::auth();
 
-//Route::get('/home', 'HomeController@index');
+    //API
+    //
+    //RUTAS 
+    //  Login
+        Route::post('/api/login/iniciarSesion','LoginController@iniciarSesion');
+        Route::post('/api/login/crearCuenta','LoginController@crearCuenta');
+        Route::get('/api/login/activarCuenta/{email}/{token}','LoginController@activarCuenta')
+                ->where('email','[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}')
+                ->where('token','[A-Za-z0-9]{10,10}');
+    //  Noticia
+        Route::get('/api/noticias/{id}','NoticiaController@get')->where('id', '[0-9]+');;
+        Route::post('/api/noticias','NoticiaController@post');
+        Route::put('/api/noticias/{id}','NoticiaController@put')->where('id', '[0-9]+');;
+        Route::delete('/api/noticias/{id}','NoticiaController@delete')->where('id', '[0-9]+');;
+    //  NoticiaComentario
+        /*
+        Route::get('/api/noticiaComentario/{id}','NoticiaComentarioController@get')->where('id', '[0-9]+');;
+        Route::post('/api/noticiaComentario','NoticiaComentarioController@post');
+        Route::put('/api/noticiaComentario/{id}','NoticiaComentarioController@put')->where('id', '[0-9]+');;
+        Route::delete('/api/noticiaComentario/{id}','NoticiaComentarioController@delete')->where('id', '[0-9]+');;
+        */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

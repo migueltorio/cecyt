@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHorariosTable extends Migration
+class CreateArchivosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,16 @@ class CreateHorariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('horarios', function (Blueprint $table) {
-            /* campos comunes a toda la bd */
+        Schema::create('archivos', function (Blueprint $table) {
+            /*Campos comunes a todas las tablas*/
             $table->increments('id');
-            $table->timestamps();
             $table->softDeletes();
+            $table->timestamps();
             
-            /* otros campos */
-            $table->string('descripcion');
-            $table->integer('semestre');
-            $table->integer('ano');
-            $table->integer('user_id');
+            /*Campos propios de la clase*/
+            $table->string('extension');
+            $table->integer('tamano')->unsigned();
+            $table->string('nombre_original'); 
         });
     }
 
@@ -33,6 +32,6 @@ class CreateHorariosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('horarios');
+        Schema::drop('archivos');
     }
 }
