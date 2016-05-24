@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('numero_documento');
             $table->enum('tipo_usuario',array('alumno','administrador'));
             $table->enum('estado',array('activo','bloqueado','inactivo'));
+            $table->string('token_activacion');
         });
     }
 

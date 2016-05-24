@@ -1,211 +1,245 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Really Simple HTML Email Template</title>
+<style>
+/* -------------------------------------
+    GLOBAL
+------------------------------------- */
+* {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.6em;
+  margin: 0;
+  padding: 0;
+}
 
-<!DOCTYPE html "-//w3c//dtd xhtml 1.0 transitional //en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
-    <!--[if gte mso 9]><xml>
-     <o:OfficeDocumentSettings>
-      <o:AllowPNG/>
-      <o:PixelsPerInch>96</o:PixelsPerInch>
-     </o:OfficeDocumentSettings>
-    </xml><![endif]-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <title>CECYT</title>
-    
-    
-    
+img {
+  max-width: 600px;
+  width: auto;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  -webkit-text-size-adjust: none;
+  width: 100% !important;
+}
+
+
+/* -------------------------------------
+    ELEMENTS
+------------------------------------- */
+a {
+  color: #348eda;
+}
+
+.btn-primary {
+  Margin-bottom: 10px;
+  width: auto !important;
+}
+
+.btn-primary td {
+  background-color: #348eda; 
+  border-radius: 25px;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-size: 14px; 
+  text-align: center;
+  vertical-align: top; 
+}
+
+.btn-primary td a {
+  background-color: #348eda;
+  border: solid 1px #348eda;
+  border-radius: 25px;
+  border-width: 10px 20px;
+  display: inline-block;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 2;
+  text-decoration: none;
+}
+
+.last {
+  margin-bottom: 0;
+}
+
+.first {
+  margin-top: 0;
+}
+
+.padding {
+  padding: 10px 0;
+}
+
+
+/* -------------------------------------
+    BODY
+------------------------------------- */
+table.body-wrap {
+  padding: 20px;
+  width: 100%;
+}
+
+table.body-wrap .container {
+  border: 1px solid #f0f0f0;
+}
+
+
+/* -------------------------------------
+    FOOTER
+------------------------------------- */
+table.footer-wrap {
+  clear: both !important;
+  width: 100%;  
+}
+
+.footer-wrap .container p {
+  color: #666666;
+  font-size: 12px;
+  
+}
+
+table.footer-wrap a {
+  color: #999999;
+}
+
+
+/* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
+h1, 
+h2, 
+h3 {
+  color: #111111;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  line-height: 1.2em;
+  margin: 40px 0 10px;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 22px;
+}
+
+p, 
+ul, 
+ol {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+ul li, 
+ol li {
+  margin-left: 5px;
+  list-style-position: inside;
+}
+
+/* ---------------------------------------------------
+    RESPONSIVENESS
+------------------------------------------------------ */
+
+/* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+.container {
+  clear: both !important;
+  display: block !important;
+  Margin: 0 auto !important;
+  max-width: 600px !important;
+}
+
+/* Set the padding on the td rather than the div for Outlook compatibility */
+.body-wrap .container {
+  padding: 20px;
+}
+
+/* This should also be a block element, so that it will fill 100% of the .container */
+.content {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Let's make sure tables in the content area are 100% wide */
+.content table {
+  width: 100%;
+}
+
+</style>
 </head>
-<body style="width: 100% !important;min-width: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100% !important;margin: 0;padding: 0;background-color: #FFFFFF">
-  <style id="media-query">
-    /* Client-specific Styles & Reset */
-    #outlook a {
-        padding: 0;
-    }
 
-    /* .ExternalClass applies to Outlook.com (the artist formerly known as Hotmail) */
-    .ExternalClass {
-        width: 100%;
-    }
+<body bgcolor="#f6f6f6">
 
-    .ExternalClass,
-    .ExternalClass p,
-    .ExternalClass span,
-    .ExternalClass font,
-    .ExternalClass td,
-    .ExternalClass div {
-        line-height: 100%;
-    }
+<!-- body -->
+<table class="body-wrap" bgcolor="#f6f6f6">
+  <tr>
+    <td></td>
+    <td class="container" bgcolor="#FFFFFF">
 
-    #backgroundTable {
-        margin: 0;
-        padding: 0;
-        width: 100% !important;
-        line-height: 100% !important;
-    }
-
-    /* Buttons */
-    .button a {
-        display: inline-block;
-        text-decoration: none;
-        -webkit-text-size-adjust: none;
-        text-align: center;
-    }
-
-    .button a div {
-        text-align: center !important;
-    }
-
-    /* Outlook First */
-    body.outlook p {
-        display: inline !important;
-    }
-
-    /*  Media Queries */
-@media only screen and (max-width: 500px) {
-  table[class="body"] img {
-    height: auto !important;
-    width: 100% !important; }
-  table[class="body"] img.fullwidth {
-    max-width: 100% !important; }
-  table[class="body"] center {
-    min-width: 0 !important; }
-  table[class="body"] .container {
-    width: 95% !important; }
-  table[class="body"] .row {
-    width: 100% !important;
-    display: block !important; }
-  table[class="body"] .wrapper {
-    display: block !important;
-    padding-right: 0 !important; }
-  table[class="body"] .columns, table[class="body"] .column {
-    table-layout: fixed !important;
-    float: none !important;
-    width: 100% !important;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-    display: block !important; }
-  table[class="body"] .wrapper.first .columns, table[class="body"] .wrapper.first .column {
-    display: table !important; }
-  table[class="body"] table.columns td, table[class="body"] table.column td, .col {
-    width: 100% !important; }
-  table[class="body"] table.columns td.expander {
-    width: 1px !important; }
-  table[class="body"] .right-text-pad, table[class="body"] .text-pad-right {
-    padding-left: 10px !important; }
-  table[class="body"] .left-text-pad, table[class="body"] .text-pad-left {
-    padding-right: 10px !important; }
-  table[class="body"] .hide-for-small, table[class="body"] .show-for-desktop {
-    display: none !important; }
-  table[class="body"] .show-for-small, table[class="body"] .hide-for-desktop {
-    display: inherit !important; }
-  .mixed-two-up .col {
-    width: 100% !important; } }
- @media screen and (max-width: 500px) {
-      div[class="col"] {
-          width: 100% !important;
-      }
-    }
-
-    @media screen and (min-width: 501px) {
-      table[class="container"] {
-          width: 500px !important;
-      }
-    }
-  </style>
-  <table class="body" style="border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 100%;width: 100%;table-layout: fixed" cellpadding="0" cellspacing="0" width="100%" border="0">
-      <tbody><tr style="vertical-align: top">
-          <td class="center" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;text-align: center;background-color: #FFFFFF" align="center" valign="top">
-
-              <table style="border-spacing: 0;border-collapse: collapse;vertical-align: top;background-color: transparent" cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
-                <tbody><tr style="vertical-align: top">
-                  <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top" width="100%">
-                    <!--[if gte mso 9]>
-                    <table id="outlookholder" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td>
-                    <![endif]-->
-                    <!--[if (IE)]>
-                    <table width="500" align="center" cellpadding="0" cellspacing="0" border="0">
-                        <tr>
-                            <td>
-                    <![endif]-->
-                    <table class="container" style="border-spacing: 0;border-collapse: collapse;vertical-align: top;max-width: 500px;margin: 0 auto;text-align: inherit" cellpadding="0" cellspacing="0" align="center" width="100%" border="0"><tbody><tr style="vertical-align: top"><td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top" width="100%"><table class="block-grid" style="border-spacing: 0;border-collapse: collapse;vertical-align: top;width: 100%;max-width: 500px;color: #333;background-color: transparent" cellpadding="0" cellspacing="0" width="100%" bgcolor="transparent"><tbody><tr style="vertical-align: top"><td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;text-align: center;font-size: 0"><!--[if (gte mso 9)|(IE)]><table width="100%" align="center" bgcolor="transparent" cellpadding="0" cellspacing="0" border="0"><tr><![endif]--><!--[if (gte mso 9)|(IE)]><td valign="top" width="500"><![endif]--><div class="col num12" style="display: inline-block;vertical-align: top;width: 100%"><table style="border-spacing: 0;border-collapse: collapse;vertical-align: top" cellpadding="0" cellspacing="0" align="center" width="100%" border="0"><tbody><tr style="vertical-align: top"><td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 30px;padding-right: 0px;padding-bottom: 30px;padding-left: 0px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"><table style="border-spacing: 0;border-collapse: collapse;vertical-align: top" cellpadding="0" cellspacing="0" width="100%">
-  <tbody><tr style="vertical-align: top">
-    <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 10px;padding-bottom: 0px;padding-left: 10px">
-        <div style="color:#555555;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">            
-        	<div style="font-size:12px;line-height:14px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 17px"><span style="font-size: 24px; line-height: 28px;" mce-data-marked="1"><strong><span style="font-family: arial, helvetica, sans-serif; line-height: 28px; font-size: 24px;" mce-data-marked="1">Bienvenido {{ $nombre }}.</span></strong></span></p></div>
-        </div>
-    </td>
-  </tr>
-</tbody></table>
-<table style="border-spacing: 0;border-collapse: collapse;vertical-align: top" cellpadding="0" cellspacing="0" width="100%">
-  <tbody><tr style="vertical-align: top">
-    <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 15px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px">
-        <div style="color:#aaaaaa;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">            
-        	<div style="font-size:12px;line-height:14px;color:#aaaaaa;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;"><p style="margin: 0;font-size: 14px;line-height: 17px">Has solicitado unirte al sistema del centro de estudiantes de la facultad de ciencias y tecnolog&#237;a de la Universidad Cat&#243;lica de Asunci&#243;n.<br></p><p style="margin: 0;font-size: 14px;line-height: 16px"><br data-mce-bogus="1"></p><p style="margin: 0;font-size: 14px;line-height: 16px">Para empezar a usar tu cuenta, debes hacer clic en el boton de abajo para activar tu cuenta.</p><p style="margin: 0;font-size: 14px;line-height: 16px"><br data-mce-bogus="1"></p><p style="margin: 0;font-size: 14px;line-height: 16px">En caso de que el bot&#243;n no funcione, puede copiar la siguiente direccion DIRECCION en el navegador para activar tu cuenta.</p><p style="margin: 0;font-size: 14px;line-height: 16px"><br data-mce-bogus="1"></p><p style="margin: 0;font-size: 14px;line-height: 16px">Saludos :)</p></div>
-        </div>
-    </td>
-  </tr>
-</tbody></table>
-<table style="border-spacing: 0;border-collapse: collapse;vertical-align: top" width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr style="vertical-align: top">
-    <td class="button-container" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 15px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px" align="left">
-      <table style="border-spacing: 0;border-collapse: collapse;vertical-align: top" width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
-        <tbody><tr style="vertical-align: top">
-          <td class="button" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top" width="100%" align="left" valign="middle">
-              <!--[if mso]>
-                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="URLLLLLLLLLLLL"
-                  style="
-                    height:42px;
-                    v-text-anchor:middle;
-                    width:146px;"
-                    arcsize="12%"
-                    strokecolor="#AAAAAA"
-                    fillcolor="#AAAAAA" >
-                <w:anchorlock/>
-                  <center 
-                    style="color:#ffffff;
-                      font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;
-                      font-size:16px;">
-              <![endif]-->
-             <!--[if !mso]><!- - --><div style="display: inline-block;
-              border-radius: 5px; 
-              -webkit-border-radius: 5px; 
-              -moz-border-radius: 5px; 
-              max-width: 25%;
-              width: 100%;
-              border-top: 0px solid transparent;
-              border-right: 0px solid transparent;
-              border-bottom: 0px solid transparent;
-              border-left: 0px solid transparent;" align="left">
-
-              <table style="border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 42" width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tbody><tr style="vertical-align: top"><td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 5px;                   -webkit-border-radius: 5px;                   -moz-border-radius: 5px;                  color: #ffffff;                  background-color: #AAAAAA;                  padding-top: 5px;                   padding-right: 20px;                  padding-bottom: 5px;                  padding-left: 20px;                  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align: center" valign="middle"><!--<![endif]-->
-                  <a style="display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #AAAAAA;color: #ffffff" href="{{ $url }}." target="_blank">
-                        <span style="font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size:16px;line-height:32px;"><span style="font-size: 11px; line-height: 22px;" data-mce-style="font-size: 11px; line-height: 20px;">Activar cuenta</span></span>
-                  </a>
-                <!--[if !mso]><!- - --></td></tr></tbody></table>
-              </div><!--<![endif]-->
-              <!--[if mso]>
-                    </center>
-                </v:roundrect>
-              <![endif]-->
+      <!-- content -->
+      <div class="content">
+      <table>
+        <tr>
+          <td>
+            <h2>Hola {{$nombre}}</h2>
+            <p>Te damos la bienvenida al sistema del centro de estudiantes 
+de la facultad de ciencias y tecnología, por favor haz click sobre el enlace que se halla debajo para confirmar tu dirección electrónica y activar tu cuenta:</p>
+            <!-- button -->
+            <table class="btn-primary" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td>
+                  <a href="{{$url}}">Activar cuenta</a>
+                </td>
+              </tr>
+            </table>
+            <!-- /button -->
+            <p>Si el enlace de arriba no fuese un "hyperlink" o no funcionase, intenta copiar el siguiente URL completo (en una sola línea) y pegarlo en la barra de navegación, o utiliza la siguiente información:  </p>
+            <p><a href="{{$url}}">{{$url}}</a></p>
+<p>Saludos</p>
           </td>
         </tr>
-      </tbody></table>
+      </table>
+      </div>
+      <!-- /content -->
+      
     </td>
+    <td></td>
   </tr>
-</tbody></table>
-</td></tr></tbody></table></div><!--[if (gte mso 9)|(IE)]></td><![endif]--><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody></table>
-                    <!--[if mso]>
-                    </td></tr></table>
-                    <![endif]-->
-                    <!--[if (IE)]>
-                    </td></tr></table>
-                    <![endif]-->
-                  </td>
-                </tr>
-              </tbody></table>
-          </td>
-      </tr>
-  </tbody></table>
+</table>
+<!-- /body -->
 
+<!-- footer -->
+<table class="footer-wrap">
+  <tr>
+    <td></td>
+    <td class="container">
+      
+      <!-- content -->
+      <div class="content">
+        <table>
+          <tr>
+            <td align="center">
 
-</body></html>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- /content -->
+      
+    </td>
+    <td></td>
+  </tr>
+</table>
+<!-- /footer -->
+
+</body>
+</html>
