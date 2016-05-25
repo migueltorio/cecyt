@@ -29,7 +29,7 @@
                 ->where('email','[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}')
                 ->where('token','[A-Za-z0-9]{10,10}');
     //  Noticia
-        Route::get('/api/noticias/{id}','NoticiaController@get')->where('id', '[0-9]+');;
+        Route::get('/api/noticias/{id}','NoticiaController@get')->where('id', '[0-9]{1,999999}');;
         Route::post('/api/noticias','NoticiaController@post');
         Route::put('/api/noticias/{id}','NoticiaController@put')->where('id', '[0-9]+');;
         Route::delete('/api/noticias/{id}','NoticiaController@delete')->where('id', '[0-9]+');;

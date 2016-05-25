@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use \App\Http\Controllers\Auth;
+use Auth;
+
+use Validator;
+
+use Carbon;
+
 
 class NoticiaController extends Controller
 {
@@ -15,7 +20,7 @@ class NoticiaController extends Controller
         $this->middleware('auth', ['only' => [
             'post',
             'put',
-            'put',
+            'delete',
             ]]);
     }
     
@@ -32,7 +37,7 @@ class NoticiaController extends Controller
         else {
             //validamos
             $validator = Validator::make($request->json()->all(), [
-                'titulo' => 'required|max:255|email',
+                'titulo' => 'required|max:255|string',
                 'contenido' => 'required|string',
             ]);
         
@@ -41,10 +46,14 @@ class NoticiaController extends Controller
                               'message' => 'Formato de entrada incorrecto'];
                 return response()->json($resultado, 400);
             }
+           $mytime = Carbon\Carbon::now();
+            $mytime = $mytime->toDateTimeString();
+            
             //agregamos
+            $noticia = new \App\Noticia;
             $noticia->titulo = $request->json('titulo');
             $noticia->contenido = $request->json('contenido');
-            $noticia->fecha_ultimo_posteo = date();
+            $noticia->fecha_ultimo_posteo = $mytime;
             $noticia->activa = true;
             $noticia->save();
             $resultado = ['status' => 'success',

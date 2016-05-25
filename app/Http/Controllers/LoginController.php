@@ -38,15 +38,15 @@ class LoginController extends Controller
                            'password' => $request->json('password')])) 
             {
                 $user = Auth::user();
-                if ($user!="activo") {
+                if ($user->estado!="activo") {
                     Auth::logout();
                     $resultado = ['status' => 'fail',
-                              'message'=> 'El usuario no se encuentra activo'];
+                                  'message'=> 'El usuario no se encuentra activo'];
                     return response()->json(array($resultado,$user), 200);
                 } 
                 else {
                     $resultado = ['status' => 'success',
-                              'redirect' => 'index'];
+                                  'redirect' => 'index'];
                     return response()->json(array($resultado,$user), 200);
                 }            
             }
