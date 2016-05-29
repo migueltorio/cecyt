@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Jugador extends Model
 {
@@ -16,8 +17,12 @@ class Jugador extends Model
     protected $dates = ['deleted_at'];
     
     //RELACIONES
-     public function user() {
+    public function user() {
         return $this->belongsTo('User');
+    }
+
+    Public function partido_tantos() {
+        return $this->hasMany('Jugador');
     }
     public function equipos() {
         return $this->belongsToMany('Equipo', 'jugador__equipos', 'jug_id', 'equ_id');

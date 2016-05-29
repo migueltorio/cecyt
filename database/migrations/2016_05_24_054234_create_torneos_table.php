@@ -13,8 +13,18 @@ class CreateTorneosTable extends Migration
     public function up()
     {
         Schema::create('torneos', function (Blueprint $table) {
+            /*Campos comunes a todas las tablas*/
             $table->increments('id');
+            $table->softDeletes();
             $table->timestamps();
+
+            /*Campos propios de la clase*/
+            $table->integer('dep_id')->unsigned();
+            $table->foreign('dep_id')->references('id')->on('deportes');
+            $table->string('nombre');
+            $table->integer('campeon_id')->unsigned();
+            $table->text('descripcion');
+            
         });
     }
 

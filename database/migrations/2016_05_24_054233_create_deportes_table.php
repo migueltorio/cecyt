@@ -20,10 +20,7 @@ class CreateDeportesTable extends Migration
             $table->timestamps();
             
             /*campos propios de la clase*/
-            $table->integer('par_id')->unsigned();
-            $table->foreign('par_id')->references('id')->on('partidos');
             $table->text('descripcion');
-            $table->boolean('activo');
             
             
         });

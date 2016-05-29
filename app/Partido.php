@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 
 class Partido extends Model
 {
@@ -17,10 +20,14 @@ class Partido extends Model
     
     //RELACIONES
    
-    Public function deportes() {
-        return $this->hasMany('Partido');
+    public function torneos() {
+        return $this->belongsTo('Torneo');
     }
-    Public function partido_tantos() {
+    public function deportes() {
+        return $this->belongsTo('Deporte');
+    }
+    
+    Public function partido__tantos() {
         return $this->hasMany('Partido');
     }
     public function equipos() {

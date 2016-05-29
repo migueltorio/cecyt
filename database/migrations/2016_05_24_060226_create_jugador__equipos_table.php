@@ -21,7 +21,7 @@ class CreateJugadorEquiposTable extends Migration
             
             /*campos propios de la clase*/
             $table->integer('jug_id')->unsigned();
-            $table->foreign('jug_id')->references('id')->on('partidos');
+            $table->foreign('jug_id')->references('id')->on('jugadors');
             $table->integer('equ_id')->unsigned();
             $table->foreign('equ_id')->references('id')->on('equipos');
         });

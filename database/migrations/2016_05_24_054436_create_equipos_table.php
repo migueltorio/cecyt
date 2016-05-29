@@ -23,7 +23,7 @@ class CreateEquiposTable extends Migration
             $table->integer('dep_id')->unsigned();
             $table->foreign('dep_id')->references('id')->on('deportes');
             $table->string('nombre');
-            $table->boolean('activo');
+            
             
 
         });

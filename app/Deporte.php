@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Deporte extends Model
 {
@@ -16,12 +18,14 @@ class Deporte extends Model
     protected $dates = ['deleted_at'];
     
     //RELACIONES
-     public function partido() {
-        return $this->belongsTo('Partido');
-    }
     
-    Public function equipo() {
+    Public function equipos() {
         return $this->hasMany('Deporte');
     }
-   
-    }}
+    Public function partidos() {
+        return $this->hasMany('Deporte');
+    }
+    Public function torneos() {
+        return $this->hasMany('Deporte');
+    }
+}

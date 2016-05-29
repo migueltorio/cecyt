@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Partido_Tanto extends Model
 {
     //establecemos nombre de la tabla
-    protected $table = 'partido_tantos';
+    protected $table = 'partido__tantos';
     //protegemos los campos contra asignación masiva
     protected $guarded = ['*'];
     
@@ -19,7 +21,7 @@ class Partido_Tanto extends Model
      public function partidos() {
         return $this->belongsTo('Partido');
     }
-    public function equipos() {
-        return $this->belongsTo('Equipo');
+    public function jugadors() {
+        return $this->belongsTo('Jugador');
     }
 }

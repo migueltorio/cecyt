@@ -20,10 +20,10 @@ class CreateJugadorsTable extends Migration
             $table->timestamps();
             
             /*campos propios de la clase*/
-            $table->integer('usu_id')->unsigned();
+            $table->integer('usu_id')->unsigned()->nullable();
             $table->foreign('usu_id')->references('id')->on('users');
             $table->string('nombre', 60);
-            $table->boolean('activo');
+            
            
 
             

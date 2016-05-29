@@ -15,6 +15,10 @@ class User extends Authenticatable
     //activamos softdelete
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    Public function jugadores() {
+        return $this->hasMany('User');
+    }
     
     //campos ocultos que no se devuelven nunca en un array
     protected $hidden = [

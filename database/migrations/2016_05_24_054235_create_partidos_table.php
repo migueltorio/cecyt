@@ -20,9 +20,14 @@ class CreatePartidosTable extends Migration
             $table->timestamps();
             
             /*campos propios de la clase*/
+            $table->integer('dep_id')->unsigned();
+            $table->foreign('dep_id')->references('id')->on('deportes');
+            $table->integer('tor_id')->unsigned();
+            $table->foreign('tor_id')->references('id')->on('torneos');
             $table->date('fecha');
             $table->string('lugar');
-            $table->boolean('activo');
+            $table->integer('puntaje_ganador');
+            $table->integer('puntaje_derrotado');
             
         });
     }

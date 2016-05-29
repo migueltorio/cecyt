@@ -22,11 +22,11 @@ class CreatePartidoTantosTable extends Migration
             /*campos propios de la clase*/
             $table->integer('par_id')->unsigned();
             $table->foreign('par_id')->references('id')->on('partidos');
-            $table->integer('equ_id')->unsigned();
-            $table->foreign('equ_id')->references('id')->on('equipos');
+            $table->integer('jug_id')->unsigned();
+            $table->foreign('jug_id')->references('id')->on('jugadors');
             $table->integer('valor');
             $table->text('detalle');
-            $table->boolean('activo');
+            
             
             
             
