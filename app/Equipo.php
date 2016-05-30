@@ -21,6 +21,9 @@ class Equipo extends Model
      public function deportes() {
         return $this->belongsTo('Deporte');
     }
+    public function partido_tantos(){
+        return $this->hasMany('Equipo');
+    }
     
     public function partidos() {
         return $this->belongsToMany('Partido', 'partido__equipos', 'equ_id', 'par_id');

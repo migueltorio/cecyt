@@ -11,116 +11,66 @@
 
 */
 
-
-
-
-    //prueba
-Route::get('/crearjugador', function () {
-
-    //instancio el modelo
-  /* $jugador = new \App\jugador;
-    //le cargo los valores
-    $jugador->nombre = 'Fulano de tal';
-    $jugador->usu_id = null; //esto suponiendo que el jugador no es miembro del sistema
-    $jugador->save();
-    $jugador->id; //aca ya esta generado el id
-    return json_encode($jugador);
-*/
-
-    //probar deporte
-/*
-    $jugador = new \App\Deporte;
-    //le cargo los valores
-    $jugador->descripcion = 'Futbol';
-    $jugador->save();
-   
-    return json_encode($jugador);
-*/
-    //probar torneo
- /*   
-     $jugador = new \App\Torneo;
-    //le cargo los valores
-    $jugador->nombre = 'Futbol CYT';
-    $jugador->dep_id = 1;
-    $jugador->campeon_id = 1;
-    $jugador->descripcion = 'es un torneo de prueba 1';
-    $jugador->save();
-    return json_encode($jugador);
-    */
-
-    //probar equipo
-    /*
-    $jugador = new \App\Equipo;
-    //le cargo los valores
-    $jugador->nombre = 'Equipo 1 CYT';
-    $jugador->dep_id = 1;
-    $jugador->save();
-    return json_encode($jugador);
-    */
-
-    //probar partido
-    /*
-    $jugador = new \App\Partido;
-    //le cargo los valores
-    $jugador->dep_id = 1;
-    $jugador->tor_id = 1;
-    $jugador->fecha = '27/02/1992';
-    $jugador->lugar = 'la esquina';
-    $jugador->puntaje_ganador = 2;
-    $jugador->puntaje_derrotado = 1;
-
-    $jugador->save();
-    return json_encode($jugador);
-    */
-
-    //probar partido_tanto
-    /*
-    $jugador = new \App\Partido_Tanto;
-    $jugador->jug_id = 1;
-    $jugador->par_id = 3;
-    $jugador->valor = 2;
-    $jugador->detalle = 'gol de larga distancia';
-    $jugador->save();
-    return json_encode($jugador);
-    */
-
-    //probar partido equipo
-    /*
-    $jugador = new \App\Partido_Equipo;
-    $jugador->part_id = 3;
-    $jugador->equ_id = 1;
-    $jugador->save();
-    return json_encode($jugador);
-    */
-/*
-    $jugador = new \App\Jugador_Equipo;
-    $jugador->jug_id =1;
-    $jugador->equ_id = 1;
-    $jugador->save();
-    return json_encode($jugador);
-*/
-});
-
-Route::get('/creardeporte', function () {
-
-    //instancio el modelo
-    $jugador = new \App\jugador;
-    //le cargo los valores
-    $jugador->nombre = 'Fulano de tal';
-    $jugador->usu_id = null; //esto suponiendo que el jugador no es miembro del sistema
-    $jugador->save;
-
-    $jugador->id; //aca ya esta generado el id
-    return json_encode($jugador);
-
-
-});
-
-
     //VISTAS
         Route::get('/login',function (){return view('login');});
 //mio
-        Route::get('/api/torneo/{id}','TorneoController@get')->where('id', '[0-9]+');;
+        //deportes
+        Route::get('/api/deporte/{id}','DeporteController@get');
+        Route::post('api/deporte', 'DeporteController@post');
+        Route::delete('api/deporte/{id}','DeporteController@delete');
+        Route::put('api/deporte/{id}','DeporteController@put');
+        //jugador
+        Route::get('/api/jugador/{id}','JugadorController@get');
+        Route::get('/api/jugadorEquipo/{id}','JugadorController@get_equipo'); //devuelve el equipo en el que se encuentra el jugador, recibe el id del jugador
+        Route::post('/api/jugador','JugadorController@post');
+        Route::put('/api/jugador/{id}','JugadorController@put');
+        Route::delete('/api/jugador/{id}','JugadorController@delete');
+        //equipo
+        Route::get('/api/equipo/{id}','EquipoController@get');
+        Route::post('/api/equipo','EquipoController@post');
+        Route::put('/api/equipo/{id}','EquipoController@put');
+        Route::delete('/api/equipo/{id}','EquipoController@delete');
+        //ver miembros del equipo
+        Route::get('/api/equipoMiembros/{id}','EquipoController@get_miembros');
+        //torneo
+        Route::get('/api/torneo/{id}','TorneoController@get');
+        Route::get('/api/torneolista','TorneoController@get_todos');
+        Route::post('/api/torneo','TorneoController@post');
+        Route::put('/api/torneo/{id}','TorneoController@put');
+        Route::delete('/api/torneo/{id}','TorneoController@delete');
+        //ver horario torneos
+        Route::get('/api/torneoHorario/{id}','TorneoController@get_horario');
+        Route::get('/api/torneoPartido/{id}','TorneoController@get_partidos');
+        //recibe el id del torneo y devuelve el horario de los partidos
+        //partido
+        Route::get('/api/partido/{id}','PartidoController@get');
+        Route::post('/api/partido','PartidoController@post');
+        Route::put('/api/partido/{id}','PartidoController@put');
+        Route::delete('/api/partido/{id}','PartidoController@delete');
+        //devuelve los tantos el partido
+        Route::get('/api/partidoTantos/{id}','PartidoController@get_tantos');
+        Route::get('/api/partidoTantosEquipo/{id}','PartidoController@get_tanto_equipo');
+        Route::get('/api/partidoTantosEquipo','PartidoController@get_tanto_equipos');
+        //partido tanto
+        Route::get('/api/partido_tanto/{id}','Partido_TantoController@get');
+        Route::post('/api/partido_tanto','Partido_TantoController@post');
+        Route::put('/api/partido_tanto/{id}','Partido_TantoController@put');
+        Route::delete('/api/partido_tanto/{id}','Partido_TantoController@delete');
+        //partido equipo
+        Route::get('/api/partido_equipo/{id}','Partido_EquipoController@get');
+        Route::post('/api/partido_equipo','Partido_EquipoController@post');
+        Route::put('/api/partido_equipo/{id}','Partido_EquipoController@put');
+        Route::delete('/api/partido_equipo/{id}','Partido_EquipoController@delete');
+        //jugador equipo
+        Route::get('/api/jugador_equipo/{id}','Jugador_EquipoController@get');
+        Route::post('/api/jugador_equipo','Jugador_EquipoController@post');
+        Route::put('/api/jugador_equipo/{id}','Jugador_EquipoController@put');
+        Route::delete('/api/jugador_equipo/{id}','Jugador_EquipoController@delete');
+        //
+
+
+
+
 
     //API
     //

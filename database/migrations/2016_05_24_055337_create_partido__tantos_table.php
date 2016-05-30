@@ -24,6 +24,9 @@ class CreatePartidoTantosTable extends Migration
             $table->foreign('par_id')->references('id')->on('partidos');
             $table->integer('jug_id')->unsigned();
             $table->foreign('jug_id')->references('id')->on('jugadors');
+            $table->integer('equ_id')->unsigned();
+            $table->foreign('equ_id')->references('id')->on('equipos');
+
             $table->integer('valor');
             $table->text('detalle');
             

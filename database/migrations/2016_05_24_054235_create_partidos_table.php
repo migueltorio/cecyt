@@ -26,8 +26,8 @@ class CreatePartidosTable extends Migration
             $table->foreign('tor_id')->references('id')->on('torneos');
             $table->date('fecha');
             $table->string('lugar');
-            $table->integer('puntaje_ganador');
-            $table->integer('puntaje_derrotado');
+            $table->integer('puntaje_ganador')->nullable();
+            $table->integer('puntaje_derrotado')->nullable();
             
         });
     }

@@ -19,10 +19,10 @@ class CreateTorneosTable extends Migration
             $table->timestamps();
 
             /*Campos propios de la clase*/
-            $table->integer('dep_id')->unsigned();
+            $table->integer('dep_id')->unsigned()->nullable();
             $table->foreign('dep_id')->references('id')->on('deportes');
             $table->string('nombre');
-            $table->integer('campeon_id')->unsigned();
+            $table->integer('campeon_id')->unsigned()->nullable();
             $table->text('descripcion');
             
         });

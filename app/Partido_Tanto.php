@@ -24,4 +24,8 @@ class Partido_Tanto extends Model
     public function jugadors() {
         return $this->belongsTo('Jugador');
     }
+    public function equipos() {
+        return $this->belongsTo('Equipo');
+    }
+
 }
